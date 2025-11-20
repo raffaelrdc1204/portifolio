@@ -35,9 +35,8 @@
     .brand{display:flex;gap:12px;align-items:center}
     .logo{
       width:52px;height:52px;border-radius:12px;
-      /* Removida a cor de fundo e fontes para usar a imagem */
       display:flex;align-items:center;justify-content:center;
-      overflow: hidden; /* Garante que a imagem se ajuste ao border-radius */
+      overflow: hidden;
     }
     nav{display:flex;gap:14px;align-items:center}
     a.btn{background:var(--glass);padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--muted);font-weight:600}
@@ -63,16 +62,14 @@
     .profile{padding:20px;border-radius:var(--radius);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
     .avatar{
       width:96px;height:96px;border-radius:16px;
-      /* Removida a cor de fundo e fontes para usar a imagem */
       display:flex;align-items:center;justify-content:center;
       margin-bottom:12px;
-      overflow: hidden; /* Garante que a imagem se ajuste ao border-radius */
+      overflow: hidden;
     }
-    /* Estilo para a imagem dentro do logo e avatar */
     .photo-placeholder {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Recorta a imagem para preencher o espaço sem distorcer */
+      object-fit: cover;
       display: block;
     }
     .small{font-size:13px;color:var(--muted)}
@@ -88,8 +85,33 @@
       .projects{grid-template-columns:1fr}
       header{flex-direction:column;align-items:flex-start}
     }
+
+    /* BOTÃO FLUTUANTE WHATSAPP */
+    .whatsapp-float {
+      position: fixed;
+      width: 62px;
+      height: 62px;
+      bottom: 26px;
+      right: 26px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      z-index: 9999;
+      transition: 0.2s;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.12);
+    }
+    .whatsapp-logo {
+      width: 36px;
+      height: 36px;
+    }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <header>
@@ -106,7 +128,6 @@
       <nav>
         <a class="btn" href="#projects">Projetos</a>
         <a class="btn" href="#about">Sobre</a>
-        <a class="btn cta" href="#contact">Contato</a>
       </nav>
     </header>
 
@@ -130,8 +151,8 @@
               <h3>Automações em Python</h3>
               <p>Aqui você encontrará todas minhas atumações em python.</p>
               <div class="project-actions">
-                <a class="btn-outline" href="#">Demo</a>
-                <a class="btn-outline" href="#">Código</a>
+                <a class="btn-outline" href="#" target="_blank">Demo</a>
+                <a class="btn-outline" href="#" target="_blank">Código</a>
               </div>
             </div>
 
@@ -139,8 +160,8 @@
               <h3>Dashboard Operacional</h3>
               <p>Dashboard completo para análise de indicadores usando SQL + Power BI.</p>
               <div class="project-actions">
-                <a class="btn-outline" href="#">Ver</a>
-                <a class="btn-outline" href="#">Detalhes</a>
+                <a class="btn-outline" href="#" target="_blank">Ver</a>
+                <a class="btn-outline" href="#" target="_blank">Detalhes</a>
               </div>
             </div>
 
@@ -148,8 +169,8 @@
               <h3>Aplicativo Técnico</h3>
               <p>App para técnicos consultarem estoque, solicitarem materiais e registrarem devolução.</p>
               <div class="project-actions">
-                <a class="btn-outline" href="#">Demo</a>
-                <a class="btn-outline" href="#">Código</a>
+                <a class="btn-outline" href="#" target="_blank">Demo</a>
+                <a class="btn-outline" href="#" target="_blank">Código</a>
               </div>
             </div>
 
@@ -157,16 +178,12 @@
               <h3>Gerador de Relatórios</h3>
               <p>Sistema automático para gerar PDFs e planilhas a partir de dados brutos.</p>
               <div class="project-actions">
-                <a class="btn-outline" href="#">Ver</a>
-                <a class="btn-outline" href="#">Repositório</a>
+                <a class="btn-outline" href="#" target="_blank">Ver</a>
+                <a class="btn-outline" href="#" target="_blank">Repositório</a>
               </div>
             </div>
           </div>
         </article>
-
-        <footer>
-          <div>Quer ver mais? <a href="#contact" style="color:var(--accent);text-decoration:none">Entre em contato</a>.</div>
-        </footer>
       </section>
 
       <aside>
@@ -177,29 +194,45 @@
           <div style="font-weight:700">Rafael Rodrigues</div>
           <div class="small">Desenvolvedor • Analista de Dados • RJ</div>
 
-          <div style="margin-top:12px;color:var(--muted);font-size:14px">Crio interfaces, automações e soluções que aceleram processos e geram insights.</div>
+          <div style="margin-top:12px;color:var(--muted);font-size:14px">
+            Crio interfaces, automações e soluções que aceleram processos e geram insights.
+          </div>
 
           <div class="contact" id="contact">
             <div class="small">Email</div>
-            <a class="btn" href="mailto:raffaelrdc1204@gmail.com">raffaelrdc1204@gmail.com</a>
+            <a class="btn" href="mailto:raffaelrdc1204@gmail.com" target="_blank">raffaelrdc1204@gmail.com</a>
 
             <div class="small">LinkedIn</div>
-            <a class="btn" href="https://linkedin.com/in/rafaelrodriguesdc">linkedin.com/in/rafaelrodriguesdc</a>
+            <a class="btn" href="https://linkedin.com/in/rafaelrodriguesdc" target="_blank">
+              linkedin.com/in/rafaelrodriguesdc
+            </a>
 
             <div class="small">GitHub</div>
-            <a class="btn" href="https://github.com/rafaelrdc">github.com/rafaelrdc</a>
+            <a class="btn" href="https://github.com/rafaelrdc" target="_blank">
+              github.com/rafaelrdc
+            </a>
           </div>
 
           <div class="socials">
-            <a href="#">Currículo</a>
-            <a href="#">Projetos</a>
+            <a href="#" target="_blank">Currículo</a>
+            <a href="#" target="_blank">Projetos</a>
           </div>
         </div>
       </aside>
     </main>
   </div>
 
+  <a href="https://wa.me/5521980228636" target="_blank" class="whatsapp-float">
+    <img class="whatsapp-logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+
 </body>
 </html>
+
+
+
+
+
+
 
 
