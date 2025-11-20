@@ -34,8 +34,10 @@
     header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px;}
     .brand{display:flex;gap:12px;align-items:center}
     .logo{
-      width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#2dd4bf);
-      display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px
+      width:52px;height:52px;border-radius:12px;
+      /* Removida a cor de fundo e fontes para usar a imagem */
+      display:flex;align-items:center;justify-content:center;
+      overflow: hidden; /* Garante que a imagem se ajuste ao border-radius */
     }
     nav{display:flex;gap:14px;align-items:center}
     a.btn{background:var(--glass);padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--muted);font-weight:600}
@@ -60,8 +62,18 @@
     aside{position:relative}
     .profile{padding:20px;border-radius:var(--radius);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
     .avatar{
-      width:96px;height:96px;border-radius:16px;background:linear-gradient(180deg,var(--accent), #2dd4bf);
-      display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:700;margin-bottom:12px
+      width:96px;height:96px;border-radius:16px;
+      /* Removida a cor de fundo e fontes para usar a imagem */
+      display:flex;align-items:center;justify-content:center;
+      margin-bottom:12px;
+      overflow: hidden; /* Garante que a imagem se ajuste ao border-radius */
+    }
+    /* Estilo para a imagem dentro do logo e avatar */
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Recorta a imagem para preencher o espaço sem distorcer */
+      display: block;
     }
     .small{font-size:13px;color:var(--muted)}
 
@@ -82,7 +94,9 @@
   <div class="wrap">
     <header>
       <div class="brand">
-        <div class="logo">RR</div>
+        <div class="logo">
+          <img src="img/profile.jpeg" alt="Logo - Rafael Rodrigues" class="photo-placeholder">
+        </div>
         <div>
           <div style="font-weight:700">Rafael Rodrigues - EM CONSTRUÇÃO</div>
           <div style="font-size:13px;color:var(--muted)">Cientista de Dados</div>
@@ -157,7 +171,9 @@
 
       <aside>
         <div class="profile">
-          <div class="avatar">RR</div>
+          <div class="avatar">
+            <img src="img/profile.jpeg" alt="Avatar - Rafael Rodrigues" class="photo-placeholder">
+          </div>
           <div style="font-weight:700">Rafael Rodrigues</div>
           <div class="small">Desenvolvedor • Analista de Dados • RJ</div>
 
@@ -183,12 +199,7 @@
     </main>
   </div>
 
-  <script>
-    (function(){
-      const initials = 'RR';
-      document.querySelectorAll('.logo, .avatar').forEach(el=>{el.textContent = initials});
-    })();
-  </script>
 </body>
 </html>
+
 
