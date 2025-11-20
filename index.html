@@ -42,19 +42,6 @@
     a.btn{background:var(--glass);padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--muted);font-weight:600}
     a.cta{background:linear-gradient(90deg,var(--accent),#2dd4bf);color:#041026}
 
-    /* botão com imagem da insignia */
-    .cert-btn img{
-      width:46px;
-      height:auto;
-      border-radius:10px;
-      cursor:pointer;
-      transition:.3s;
-    }
-    .cert-btn img:hover{
-      transform:scale(1.07);
-      opacity:0.85;
-    }
-
     main{display:grid;grid-template-columns:1fr 360px;gap:28px}
 
     .hero{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:28px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
@@ -66,10 +53,39 @@
 
     .projects{margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
     .card{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
-    .card h3{margin:0 0 8px 0}
+    
+    /* Estilo para alinhar o nome e a insígnia */
+    .card-title-group {
+      display: flex;
+      align-items: center;
+      gap: 10px; 
+      margin-bottom: 8px; 
+    }
+    
+    .card h3{margin:0;} 
     .card p{margin:0;color:var(--muted);font-size:14px}
     .project-actions{margin-top:10px;display:flex;gap:8px}
     .btn-outline{padding:6px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);text-decoration:none;color:var(--muted);font-size:13px}
+
+    /* Estilo para o link da insígnia */
+    .cert-link {
+        text-decoration: none; /* Remove sublinhado do link */
+        line-height: 0; /* Ajuda a centralizar a imagem */
+    }
+
+    /* Estilo para a imagem da insígnia dentro do card (agora é filha direta do link) */
+    .card-cert-img {
+      width: 52px; 
+      height: 52px; 
+      border-radius: 10px;
+      cursor: pointer;
+      transition: .3s;
+      object-fit: contain; 
+    }
+    .card-cert-img:hover{
+      transform:scale(1.07);
+      opacity:0.85;
+    }
 
     aside{position:relative}
     .profile{padding:20px;border-radius:var(--radius);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
@@ -141,12 +157,6 @@
       <nav>
         <a class="btn" href="#projects">Projetos</a>
         <a class="btn" href="#about">Sobre</a>
-
-        <!-- 🔥 IMAGEM COMO BOTÃO (insignia na raiz) -->
-        <a class="cert-btn" href="#" target="_blank" title="Certificação Oracle">
-          <img src="insignia.jpeg" alt="Certificação Oracle">
-        </a>
-
       </nav>
     </header>
 
@@ -167,7 +177,16 @@
 
           <div class="projects" id="projects">
             <div class="card">
+              <div class="card-title-group">
+                <div style="font-weight:700; font-size: 16px;">Avatar - Rafael Rodrigues</div>
+                
+                <a href="#" target="_blank" title="Certificação Oracle" class="cert-link">
+                  <img src="insignia.jpeg" alt="Certificação Oracle" class="card-cert-img">
+                </a>
+              </div>
+              
               <h3>Automações em Python</h3>
+              
               <p>Aqui você encontrará todas minhas atumações em python.</p>
               <div class="project-actions">
                 <a class="btn-outline" href="#" target="_blank">Demo</a>
