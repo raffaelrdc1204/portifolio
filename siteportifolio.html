@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfólio • Rafael Rodrigues</title>
+  <meta name="description" content="Portfólio pessoal — projetos, sobre e contato." />
+
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#98a0b3;
+      --accent:#7c3aed;
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      color-scheme: dark;
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui;
+      background:linear-gradient(180deg,var(--bg), #071025 140%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      line-height:1.45;
+      padding:32px 16px;
+      display:flex;justify-content:center;
+    }
+    .wrap{width:100%;max-width:var(--max-width)}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px;}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#2dd4bf);
+      display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px
+    }
+    nav{display:flex;gap:14px;align-items:center}
+    a.btn{background:var(--glass);padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--muted);font-weight:600}
+    a.cta{background:linear-gradient(90deg,var(--accent),#2dd4bf);color:#041026}
+
+    main{display:grid;grid-template-columns:1fr 360px;gap:28px}
+
+    .hero{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:28px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+    .hero h1{margin:0;font-size:28px}
+    .hero p.lead{color:var(--muted);margin-top:8px}
+
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .chip{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+
+    .projects{margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .card{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .card h3{margin:0 0 8px 0}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .project-actions{margin-top:10px;display:flex;gap:8px}
+    .btn-outline{padding:6px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);text-decoration:none;color:var(--muted);font-size:13px}
+
+    aside{position:relative}
+    .profile{padding:20px;border-radius:var(--radius);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+    .avatar{
+      width:96px;height:96px;border-radius:16px;background:linear-gradient(180deg,var(--accent), #2dd4bf);
+      display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:700;margin-bottom:12px
+    }
+    .small{font-size:13px;color:var(--muted)}
+
+    .contact{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+    .socials{display:flex;gap:8px;margin-top:12px}
+    .socials a{padding:8px 10px;border-radius:8px;background:var(--glass);text-decoration:none;color:var(--muted);font-weight:600}
+
+    footer{margin-top:20px;color:var(--muted);font-size:13px}
+
+    @media (max-width:980px){
+      main{grid-template-columns:1fr}
+      .projects{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">RR</div>
+        <div>
+          <div style="font-weight:700">Rafael Rodrigues</div>
+          <div style="font-size:13px;color:var(--muted)">Desenvolvedor • Analista de Dados</div>
+        </div>
+      </div>
+
+      <nav>
+        <a class="btn" href="#projects">Projetos</a>
+        <a class="btn" href="#about">Sobre</a>
+        <a class="btn cta" href="#contact">Contato</a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <article class="hero" id="about">
+          <h1>Olá — eu sou Rafael Rodrigues.</h1>
+          <p class="lead">Desenvolvo sistemas, automações e dashboards. Aqui está uma seleção dos meus projetos e resultados.</p>
+
+          <div class="skills">
+            <div class="chip">HTML</div>
+            <div class="chip">CSS</div>
+            <div class="chip">JavaScript</div>
+            <div class="chip">React</div>
+            <div class="chip">Python</div>
+            <div class="chip">SQL</div>
+          </div>
+
+          <div class="projects" id="projects">
+            <div class="card">
+              <h3>Sistema de Automação ACQs</h3>
+              <p>Automação para baixas, solicitações e controle de materiais. Integração Sheets + Python + Web.</p>
+              <div class="project-actions">
+                <a class="btn-outline" href="#">Demo</a>
+                <a class="btn-outline" href="#">Código</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Dashboard Operacional</h3>
+              <p>Dashboard completo para análise de indicadores usando SQL + Power BI.</p>
+              <div class="project-actions">
+                <a class="btn-outline" href="#">Ver</a>
+                <a class="btn-outline" href="#">Detalhes</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Aplicativo Técnico</h3>
+              <p>App para técnicos consultarem estoque, solicitarem materiais e registrarem devolução.</p>
+              <div class="project-actions">
+                <a class="btn-outline" href="#">Demo</a>
+                <a class="btn-outline" href="#">Código</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Gerador de Relatórios</h3>
+              <p>Sistema automático para gerar PDFs e planilhas a partir de dados brutos.</p>
+              <div class="project-actions">
+                <a class="btn-outline" href="#">Ver</a>
+                <a class="btn-outline" href="#">Repositório</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <footer>
+          <div>Quer ver mais? <a href="#contact" style="color:var(--accent);text-decoration:none">Entre em contato</a>.</div>
+        </footer>
+      </section>
+
+      <aside>
+        <div class="profile">
+          <div class="avatar">RR</div>
+          <div style="font-weight:700">Rafael Rodrigues</div>
+          <div class="small">Desenvolvedor • Analista de Dados • RJ</div>
+
+          <div style="margin-top:12px;color:var(--muted);font-size:14px">Crio interfaces, automações e soluções que aceleram processos e geram insights.</div>
+
+          <div class="contact" id="contact">
+            <div class="small">Email</div>
+            <a class="btn" href="mailto:raffaelrdc1204@gmail.com">raffaelrdc1204@gmail.com</a>
+
+            <div class="small">LinkedIn</div>
+            <a class="btn" href="https://linkedin.com/in/rafaelrodriguesdc">linkedin.com/in/rafaelrodriguesdc</a>
+
+            <div class="small">GitHub</div>
+            <a class="btn" href="https://github.com/rafaelrdc">github.com/rafaelrdc</a>
+          </div>
+
+          <div class="socials">
+            <a href="#">Currículo</a>
+            <a href="#">Projetos</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    (function(){
+      const initials = 'RR';
+      document.querySelectorAll('.logo, .avatar').forEach(el=>{el.textContent = initials});
+    })();
+  </script>
+</body>
+</html>
+
