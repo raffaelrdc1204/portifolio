@@ -272,18 +272,23 @@
     <img class="whatsapp-logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   </a>
 
-  <!-- 🔥 CONTADOR FUNCIONAL (COUNTAPI) -->
+  <!-- 🔥 CONTADOR FUNCIONAL (COUNTAPI CORRIGIDO) -->
   <script>
     const contadorSpan = document.getElementById("contador");
 
     async function registrarVisita() {
       try {
-        const resposta = await fetch("https://api.countapi.xyz/hit/rafaelrdc.github.io/visitas");
+        // incrementa +1
+        await fetch("https://api.countapi.xyz/update/rafaelrdc/portfolio?amount=1");
+
+        // busca valor atualizado
+        const resposta = await fetch("https://api.countapi.xyz/get/rafaelrdc/portfolio");
         const dados = await resposta.json();
 
         contadorSpan.textContent = dados.value.toLocaleString("pt-BR");
       } catch (e) {
         contadorSpan.textContent = "Erro";
+        console.error("Erro no contador:", e);
       }
     }
 
@@ -292,6 +297,7 @@
 
 </body>
 </html>
+
 
 
 
