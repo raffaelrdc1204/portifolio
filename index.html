@@ -282,13 +282,13 @@
   );
 
   async function registrarVisita() {
-    await supabase.from("visits").insert([{ ip: null }]);
+    await supabase.from("visitors").insert([{ ip: null }]);
     atualizarContador();
   }
 
   async function atualizarContador() {
     const { count } = await supabase
-      .from("visits")
+      .from("visitors")
       .select("*", { count: "exact", head: true });
 
     document.getElementById("contador").innerText = count;
@@ -299,6 +299,7 @@
 
 </body>
 </html>
+
 
 
 
