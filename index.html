@@ -272,20 +272,24 @@
     <img class="whatsapp-logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   </a>
 
-  <!-- 🔥 CONTADOR REAL VIA COUNTAPI.HOLISTIC.DEV -->
+  <!-- 🔥 CONTADOR REAL VIA COUNTAPI.XYZ -->
   <script>
     const contadorSpan = document.getElementById("contador");
 
     async function registrarVisita() {
       try {
-        // incrementa +1
-        await fetch("https://countapi.holistic.dev/update/rafaelrdc/portfolio/?amount=1");
+        // Cria o contador caso não exista
+        await fetch("https://api.countapi.xyz/create?namespace=rafaelrdc&key=portfolio&value=0");
 
-        // busca valor atualizado
-        const resposta = await fetch("https://countapi.holistic.dev/get/rafaelrdc/portfolio/");
+        // Incrementa o contador
+        await fetch("https://api.countapi.xyz/hit/rafaelrdc/portfolio");
+
+        // Busca valor atualizado
+        const resposta = await fetch("https://api.countapi.xyz/get/rafaelrdc/portfolio");
         const dados = await resposta.json();
 
         contadorSpan.textContent = dados.value.toLocaleString("pt-BR");
+
       } catch (e) {
         contadorSpan.textContent = "Erro";
         console.error("Erro no contador:", e);
@@ -297,6 +301,8 @@
 
 </body>
 </html>
+
+
 
 
 
