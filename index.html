@@ -48,11 +48,11 @@
     
     /* REMOVIDO: .hero h1{margin:0;font-size:28px} */
     
-    /* NOVO ESTILO: Para o texto do resumo ser menor, mas em negrito */
-    .hero .resume-text {
-        margin: 0;
-        font-size: 17px; /* Tamanho ligeiramente maior que o 'lead' */
-        font-weight: 700; /* Mantém o negrito da imagem */
+    /* NOVO AJUSTE: Garante que o primeiro parágrafo dentro de .hero (o resumo) tenha estilo normal */
+    .hero p:first-of-type {
+        margin-top: 0;
+        font-weight: normal; /* Sobrescreve qualquer negrito */
+        font-size: 16px;     /* Define o tamanho padrão de texto */
         line-height: 1.6;
     }
 
@@ -169,7 +169,7 @@
     <main>
       <section>
         <article class="hero" id="about">
-            <p class="resume-text">
+            <p>
                 Me chamo Rafael Rodrigues do Carmo, Analista de Dados, com mais de nove anos de experiência e especialidade no ciclo completo: da Engenharia de Dados (SQL, Python, ETL) à Modelagem Preditiva e Visualização de Alto Impacto no Power BI. Sou um profissional orientado à automação e focado em resultados, com destaque para a redução de 60% no tempo de análise gerencial. Certificado (Oracle Certified Professional e Lean Six Sigma), dedico-me a promover a Governança de Dados e impulsionar o valor estratégico do negócio.
             </p>
           
@@ -274,6 +274,7 @@
 
 </body>
 </html>
+
 
 
 
