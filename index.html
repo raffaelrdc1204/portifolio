@@ -42,19 +42,6 @@
     a.btn{background:var(--glass);padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--muted);font-weight:600}
     a.cta{background:linear-gradient(90deg,var(--accent),#2dd4bf);color:#041026}
 
-    /* botão com imagem da insignia */
-    .cert-btn img{
-      width:46px;
-      height:auto;
-      border-radius:10px;
-      cursor:pointer;
-      transition:.3s;
-    }
-    .cert-btn img:hover{
-      transform:scale(1.07);
-      opacity:0.85;
-    }
-
     main{display:grid;grid-template-columns:1fr 360px;gap:28px}
 
     .hero{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:28px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
@@ -97,9 +84,9 @@
     }
 
     .insignia-side{
-      width:72px;
-      height:auto;
-      border-radius:12px;
+      width:96px;       /* mesmo tamanho da foto lateral */
+      height:96px;
+      border-radius:16px; /* mesmo arredondamento da foto */
       cursor:pointer;
       transition:.3s;
     }
@@ -274,6 +261,7 @@
 
 </body>
 </html>
+
 
 
 
