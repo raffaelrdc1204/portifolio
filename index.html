@@ -42,6 +42,19 @@
     a.btn{background:var(--glass);padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--muted);font-weight:600}
     a.cta{background:linear-gradient(90deg,var(--accent),#2dd4bf);color:#041026}
 
+    /* botão com imagem da insignia */
+    .cert-btn img{
+      width:46px;
+      height:auto;
+      border-radius:10px;
+      cursor:pointer;
+      transition:.3s;
+    }
+    .cert-btn img:hover{
+      transform:scale(1.07);
+      opacity:0.85;
+    }
+
     main{display:grid;grid-template-columns:1fr 360px;gap:28px}
 
     .hero{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:28px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
@@ -53,54 +66,48 @@
 
     .projects{margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
     .card{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
-    
-    /* Estilo para alinhar o nome e a insígnia */
-    .card-title-group {
-      display: flex;
-      align-items: center;
-      gap: 10px; 
-      margin-bottom: 8px; 
-    }
-    
-    .card h3{margin:0;} 
+    .card h3{margin:0 0 8px 0}
     .card p{margin:0;color:var(--muted);font-size:14px}
     .project-actions{margin-top:10px;display:flex;gap:8px}
     .btn-outline{padding:6px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);text-decoration:none;color:var(--muted);font-size:13px}
 
-    /* Estilo para o link da insígnia */
-    .cert-link {
-        text-decoration: none; 
-        line-height: 0; 
-    }
-
-    /* Estilo para a imagem da insígnia dentro do card */
-    .card-cert-img {
-      width: 52px; 
-      height: 52px; 
-      border-radius: 10px;
-      cursor: pointer;
-      transition: .3s;
-      object-fit: contain; 
-    }
-    .card-cert-img:hover{
-      transform:scale(1.07);
-      opacity:0.85;
-    }
-
     aside{position:relative}
-    .profile{padding:20px;border-radius:var(--radius);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+    .profile{
+      padding:20px;
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03)
+    }
+
+    /* FOTO + INSÍGNIA LADO A LADO */
+    .avatar-row{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:12px;
+    }
+
     .avatar{
       width:96px;height:96px;border-radius:16px;
       display:flex;align-items:center;justify-content:center;
-      margin-bottom:12px;
       overflow: hidden;
     }
     .photo-placeholder {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+      width: 100%;height: 100%;object-fit: cover;display: block;
     }
+
+    .insignia-side{
+      width:72px;
+      height:auto;
+      border-radius:12px;
+      cursor:pointer;
+      transition:.3s;
+    }
+    .insignia-side:hover{
+      transform:scale(1.08);
+      opacity:0.9;
+    }
+
     .small{font-size:13px;color:var(--muted)}
 
     .contact{margin-top:14px;display:flex;flex-direction:column;gap:8px}
@@ -146,7 +153,7 @@
     <header>
       <div class="brand">
         <div class="logo">
-          <img src="profile.jpeg" alt="Logo - Rafael Rodrigues" class="photo-placeholder">
+          <img src="img/profile.jpeg" alt="Logo - Rafael Rodrigues" class="photo-placeholder">
         </div>
         <div>
           <div style="font-weight:700">Rafael Rodrigues - EM CONSTRUÇÃO</div>
@@ -157,6 +164,8 @@
       <nav>
         <a class="btn" href="#projects">Projetos</a>
         <a class="btn" href="#about">Sobre</a>
+
+        <!-- removido — a insígnia agora é exibida no painel lateral -->
       </nav>
     </header>
 
@@ -177,16 +186,7 @@
 
           <div class="projects" id="projects">
             <div class="card">
-              <div class="card-title-group">
-                <div style="font-weight:700; font-size: 16px;">Avatar - Rafael Rodrigues</div>
-                
-                <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=DE2623574FECB4F212B86B6643102BD3F75400C39B54DC564A1C1F5B0C9ECB67" target="_blank" title="Certificação Oracle" class="cert-link">
-                  <img src="insignia.jpeg" alt="Certificação Oracle" class="card-cert-img">
-                </a>
-              </div>
-              
               <h3>Automações em Python</h3>
-              
               <p>Aqui você encontrará todas minhas atumações em python.</p>
               <div class="project-actions">
                 <a class="btn-outline" href="#" target="_blank">Demo</a>
@@ -226,9 +226,19 @@
 
       <aside>
         <div class="profile">
-          <div class="avatar">
-            <img src="profile.jpeg" alt="Avatar - Rafael Rodrigues" class="photo-placeholder">
+
+          <!-- FOTO + INSÍGNIA LADO A LADO -->
+          <div class="avatar-row">
+            <div class="avatar">
+              <img src="img/profile.jpeg" alt="Avatar - Rafael Rodrigues" class="photo-placeholder">
+            </div>
+
+            <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=DE2623574FECB4F212B86B6643102BD3F75400C39B54DC564A1C1F5B0C9ECB67"
+               target="_blank">
+              <img src="insignia.jpeg" class="insignia-side" alt="Certificação Oracle">
+            </a>
           </div>
+
           <div style="font-weight:700">Rafael Rodrigues</div>
           <div class="small">Desenvolvedor • Analista de Dados • RJ</div>
 
@@ -266,6 +276,8 @@
 
 </body>
 </html>
+
+
 
 
 
