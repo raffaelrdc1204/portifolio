@@ -46,13 +46,10 @@
 
     .hero{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:28px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
     
-    /* REMOVIDO: .hero h1{margin:0;font-size:28px} */
-    
-    /* NOVO AJUSTE: Garante que o primeiro parágrafo dentro de .hero (o resumo) tenha estilo normal */
     .hero p:first-of-type {
         margin-top: 0;
-        font-weight: normal; /* Sobrescreve qualquer negrito */
-        font-size: 16px;     /* Define o tamanho padrão de texto */
+        font-weight: normal;
+        font-size: 16px;
         line-height: 1.6;
     }
 
@@ -76,7 +73,6 @@
       border:1px solid rgba(255,255,255,0.03)
     }
 
-    /* FOTO + INSÍGNIA LADO A LADO */
     .avatar-row{
       display:flex;
       align-items:center;
@@ -91,16 +87,16 @@
     }
     .photo-placeholder {
       width: 100%;height: 100%;object-fit: cover;display: block;
-      box-shadow: 0 0 10px rgba(255,255,255,0.4); /* sombra branca */
+      box-shadow: 0 0 10px rgba(255,255,255,0.4);
     }
 
     .insignia-side{
-      width:96px;      /* mesmo tamanho da foto lateral */
+      width:96px;
       height:96px;
-      border-radius:16px; /* mesmo arredondamento da foto */
+      border-radius:16px;
       cursor:pointer;
       transition:.3s;
-      box-shadow: 0 0 10px rgba(255,255,255,0.4); /* sombra branca */
+      box-shadow: 0 0 10px rgba(255,255,255,0.4);
     }
     .insignia-side:hover{
       transform:scale(1.08);
@@ -113,7 +109,7 @@
     .socials{display:flex;gap:8px;margin-top:12px}
     .socials a{padding:8px 10px;border-radius:8px;background:var(--glass);text-decoration:none;color:var(--muted);font-weight:600}
 
-    footer{margin-top:20px;color:var(--muted);font-size:13px}
+    footer{margin-top:20px;color:var(--muted);font-size:13px;text-align:center}
 
     @media (max-width:980px){
       main{grid-template-columns:1fr}
@@ -121,7 +117,6 @@
       header{flex-direction:column;align-items:flex-start}
     }
 
-    /* BOTÃO WHATSAPP FIXO */
     .whatsapp-float {
       position: fixed;
       width: 62px;
@@ -266,14 +261,52 @@
         </div>
       </aside>
     </main>
+
+    <!-- 👇 AQUI APARECERÁ A CONTAGEM -->
+    <footer>
+      Visitantes: <span id="contador">Carregando...</span>
+    </footer>
+
   </div>
 
   <a href="https://wa.me/5521980228636" target="_blank" class="whatsapp-float">
     <img class="whatsapp-logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   </a>
 
+
+  <!-- ============================= -->
+  <!--     CONTADOR DE VISITAS      -->
+  <!-- ============================= -->
+  <script>
+    const contadorSpan = document.getElementById("contador");
+    const STORAGE_KEY = "visitante_contado_rdc";
+    const COUNTAPI_KEY = "portifolio-rafaelrdc"; // 👈 NÃO ALTERAR
+
+    async function registrarVisita() {
+      try {
+        // Evita contar a mesma pessoa no mesmo navegador
+        if (!localStorage.getItem(STORAGE_KEY)) {
+          await fetch(`https://api.countapi.xyz/hit/${COUNTAPI_KEY}/visits`);
+          localStorage.setItem(STORAGE_KEY, "true");
+        }
+
+        // Busca contagem atualizada
+        const resposta = await fetch(`https://api.countapi.xyz/get/${COUNTAPI_KEY}/visits`);
+        const dados = await resposta.json();
+
+        contadorSpan.textContent = dados.value.toLocaleString("pt-BR");
+      } catch (e) {
+        contadorSpan.textContent = "Erro";
+      }
+    }
+
+    registrarVisita();
+  </script>
+
 </body>
 </html>
+
+
 
 
 
