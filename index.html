@@ -272,16 +272,16 @@
     <img class="whatsapp-logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   </a>
 
-  <!-- 🔥 NOVO CONTADOR 100% FUNCIONAL -->
+  <!-- 🔥 CONTADOR FUNCIONAL (COUNTAPI) -->
   <script>
     const contadorSpan = document.getElementById("contador");
 
     async function registrarVisita() {
       try {
-        const resposta = await fetch("https://hitcounter.pythonanywhere.com/count/portifolio-rafaelrdc");
+        const resposta = await fetch("https://api.countapi.xyz/hit/rafaelrdc.github.io/visitas");
         const dados = await resposta.json();
 
-        contadorSpan.textContent = dados.hits.toLocaleString("pt-BR");
+        contadorSpan.textContent = dados.value.toLocaleString("pt-BR");
       } catch (e) {
         contadorSpan.textContent = "Erro";
       }
@@ -292,6 +292,7 @@
 
 </body>
 </html>
+
 
 
 
