@@ -272,53 +272,35 @@
     <img class="whatsapp-logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   </a>
 
- <!-- CONTADOR DE VISITAS POR IP -->
-<div id="visit-counter" style="color:white; text-align:center; margin-top:20px; font-size:16px;">
-  Carregando contador...
-</div>
+<!-- CONTADOR REAL TOTAL (SUPABASE) -->
+<script type="module">
+  import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-<script>
-async function getIP() {
-    try {
-        const res = await fetch("https://api.ipify.org?format=json");
-        const data = await res.json();
-        return data.ip;
-    } catch (e) {
-        console.error("Erro ao obter IP:", e);
-        return null;
-    }
-}
+  const supabase = createClient(
+    "https://qlntsanxazgnonperdoj.supabase.co",
+    "sb_publishable_7oFIizz5sCs6Ww6plcviUA_QUvhL4_A"
+  );
 
-async function countVisit() {
-    const ip = await getIP();
-    if (!ip) return;
+  async function registrarVisita() {
+    await supabase.from("visits").insert([{ ip: null }]);
+    atualizarContador();
+  }
 
-    // Verifica se já contou este IP anteriormente
-    const visitedIPs = JSON.parse(localStorage.getItem("visitedIPs")) || [];
+  async function atualizarContador() {
+    const { count } = await supabase
+      .from("visits")
+      .select("*", { count: "exact", head: true });
 
-    let visits = localStorage.getItem("totalVisits");
-    visits = visits ? parseInt(visits) : 0;
+    document.getElementById("contador").innerText = count;
+  }
 
-    // Se o IP ainda não foi registrado → conta a visita
-    if (!visitedIPs.includes(ip)) {
-        visits++;
-        visitedIPs.push(ip);
-
-        localStorage.setItem("visitedIPs", JSON.stringify(visitedIPs));
-        localStorage.setItem("totalVisits", visits);
-    }
-
-    // Mostra o valor na tela
-    document.getElementById("visit-counter").innerText =
-        "Total de visitas únicas: " + visits;
-}
-
-// Inicia o contador
-countVisit();
+  registrarVisita();
 </script>
 
 </body>
 </html>
+
+
 
 
 
