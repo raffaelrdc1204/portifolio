@@ -45,7 +45,17 @@
     main{display:grid;grid-template-columns:1fr 360px;gap:28px}
 
     .hero{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:28px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
-    .hero h1{margin:0;font-size:28px}
+    
+    /* REMOVIDO: .hero h1{margin:0;font-size:28px} */
+    
+    /* NOVO ESTILO: Para o texto do resumo ser menor, mas em negrito */
+    .hero .resume-text {
+        margin: 0;
+        font-size: 17px; /* Tamanho ligeiramente maior que o 'lead' */
+        font-weight: 700; /* Mantém o negrito da imagem */
+        line-height: 1.6;
+    }
+
     .hero p.lead{color:var(--muted);margin-top:8px}
 
     .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
@@ -85,7 +95,7 @@
     }
 
     .insignia-side{
-      width:96px;       /* mesmo tamanho da foto lateral */
+      width:96px;      /* mesmo tamanho da foto lateral */
       height:96px;
       border-radius:16px; /* mesmo arredondamento da foto */
       cursor:pointer;
@@ -159,8 +169,11 @@
     <main>
       <section>
         <article class="hero" id="about">
-          <p>Ma Chamo Rafael Rodrigues do Carmo, Analista de Dados, com mais de nove anos de experiência e especialidade no ciclo completo: da Engenharia de Dados (SQL, Python, ETL) à Modelagem Preditiva e Visualização de Alto Impacto no Power BI. Sou um profissional orientado à automação e focado em resultados, com destaque para a redução de 60% no tempo de análise gerencial. Certificado (Oracle Certified Professional e Lean Six Sigma), dedico-me a promover a Governança de Dados e impulsionar o valor estratégico do negócio.</p>
-          <p class="lead">Automações, dashboards, banco de dados. Aqui está uma seleção dos meus projetos e resultados.</p>
+            <p class="resume-text">
+                Me chamo Rafael Rodrigues do Carmo, Analista de Dados, com mais de nove anos de experiência e especialidade no ciclo completo: da Engenharia de Dados (SQL, Python, ETL) à Modelagem Preditiva e Visualização de Alto Impacto no Power BI. Sou um profissional orientado à automação e focado em resultados, com destaque para a redução de 60% no tempo de análise gerencial. Certificado (Oracle Certified Professional e Lean Six Sigma), dedico-me a promover a Governança de Dados e impulsionar o valor estratégico do negócio.
+            </p>
+          
+            <p class="lead">Automações, dashboards, banco de dados. Aqui está uma seleção dos meus projetos e resultados.</p>
 
           <div class="skills">
             <div class="chip">HTML + CSS</div>
@@ -173,7 +186,7 @@
           <div class="projects" id="projects">
             <div class="card">
               <h3>Automações em Python</h3>
-              <p>Aqui você encontrará todas minhas atumações em python.</p>
+              <p>Aqui você encontrará todas minhas automações em python.</p>
               <div class="project-actions">
                 <a class="btn-outline" href="#" target="_blank">Demo</a>
                 <a class="btn-outline" href="#" target="_blank">Código</a>
@@ -213,7 +226,6 @@
       <aside>
         <div class="profile">
 
-          <!-- FOTO + INSÍGNIA LADO A LADO -->
           <div class="avatar-row">
             <div class="avatar">
               <img src="profile.jpeg" alt="Avatar - Rafael Rodrigues" class="photo-placeholder">
@@ -262,6 +274,7 @@
 
 </body>
 </html>
+
 
 
 
