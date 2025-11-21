@@ -262,7 +262,6 @@
       </aside>
     </main>
 
-    <!-- 👇 AQUI APARECERÁ A CONTAGEM -->
     <footer>
       Visitantes: <span id="contador">Carregando...</span>
     </footer>
@@ -273,28 +272,16 @@
     <img class="whatsapp-logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   </a>
 
-
-  <!-- ============================= -->
-  <!--     CONTADOR DE VISITAS      -->
-  <!-- ============================= -->
+  <!-- 🔥 NOVO CONTADOR 100% FUNCIONAL -->
   <script>
     const contadorSpan = document.getElementById("contador");
-    const STORAGE_KEY = "visitante_contado_rdc";
-    const COUNTAPI_KEY = "portifolio-rafaelrdc"; // 👈 NÃO ALTERAR
 
     async function registrarVisita() {
       try {
-        // Evita contar a mesma pessoa no mesmo navegador
-        if (!localStorage.getItem(STORAGE_KEY)) {
-          await fetch(`https://api.countapi.xyz/hit/${COUNTAPI_KEY}/visits`);
-          localStorage.setItem(STORAGE_KEY, "true");
-        }
-
-        // Busca contagem atualizada
-        const resposta = await fetch(`https://api.countapi.xyz/get/${COUNTAPI_KEY}/visits`);
+        const resposta = await fetch("https://hitcounter.pythonanywhere.com/count/portifolio-rafaelrdc");
         const dados = await resposta.json();
 
-        contadorSpan.textContent = dados.value.toLocaleString("pt-BR");
+        contadorSpan.textContent = dados.hits.toLocaleString("pt-BR");
       } catch (e) {
         contadorSpan.textContent = "Erro";
       }
@@ -305,6 +292,8 @@
 
 </body>
 </html>
+
+
 
 
 
