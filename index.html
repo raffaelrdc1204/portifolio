@@ -1,303 +1,326 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portfólio • Rafael Rodrigues</title>
-  <meta name="description" content="Portfólio pessoal — projetos, sobre e contato." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfólio • Rafael Rodrigues</title>
+  <meta name="description" content="Portfólio pessoal — projetos, sobre e contato." />
 
-  <style>
-    :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --muted:#98a0b3;
-      --accent:#7c3aed;
-      --glass: rgba(255,255,255,0.04);
-      --radius:14px;
-      color-scheme: dark;
-      --max-width:1100px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter, ui-sans-serif, system-ui;
-      background:linear-gradient(180deg,var(--bg), #071025 140%);
-      color:#e6eef8;
-      -webkit-font-smoothing:antialiased;
-      line-height:1.45;
-      padding:32px 16px;
-      display:flex;justify-content:center;
-    }
-    .wrap{width:100%;max-width:var(--max-width)}
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#98a0b3;
+      --accent:#7c3aed;
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      color-scheme: dark;
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui;
+      background:linear-gradient(180deg,var(--bg), #071025 140%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      line-height:1.45;
+      padding:32px 16px;
+      display:flex;justify-content:center;
+    }
+    .wrap{width:100%;max-width:var(--max-width)}
 
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px;}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{
-      width:52px;height:52px;border-radius:12px;
-      display:flex;align-items:center;justify-content:center;
-      overflow: hidden;
-    }
-    nav{display:flex;gap:14px;align-items:center}
-    a.btn{background:var(--glass);padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--muted);font-weight:600}
-    a.cta{background:linear-gradient(90deg,var(--accent),#2dd4bf);color:#041026}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px;}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:52px;height:52px;border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      overflow: hidden;
+    }
+    nav{display:flex;gap:14px;align-items:center}
+    a.btn{background:var(--glass);padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--muted);font-weight:600}
+    a.cta{background:linear-gradient(90deg,var(--accent),#2dd4bf);color:#041026}
 
-    main{display:grid;grid-template-columns:1fr 360px;gap:28px}
+    main{display:grid;grid-template-columns:1fr 360px;gap:28px}
 
-    .hero{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:28px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
-    
-    .hero p:first-of-type {
-        margin-top: 0;
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 1.6;
-    }
+    .hero{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:28px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+    
+    .hero p:first-of-type {
+        margin-top: 0;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 1.6;
+    }
 
-    .hero p.lead{color:var(--muted);margin-top:8px}
+    .hero p.lead{color:var(--muted);margin-top:8px}
 
-    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-    .chip{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .chip{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
 
-    .projects{margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-    .card{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
-    .card h3{margin:0 0 8px 0}
-    .card p{margin:0;color:var(--muted);font-size:14px}
-    .project-actions{margin-top:10px;display:flex;gap:8px}
-    .btn-outline{padding:6px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);text-decoration:none;color:var(--muted);font-size:13px}
+    .projects{margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .card{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .card h3{margin:0 0 8px 0}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .project-actions{margin-top:10px;display:flex;gap:8px}
+    .btn-outline{padding:6px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);text-decoration:none;color:var(--muted);font-size:13px}
 
-    aside{position:relative}
-    .profile{
-      padding:20px;
-      border-radius:var(--radius);
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border:1px solid rgba(255,255,255,0.03)
-    }
+    aside{position:relative}
+    .profile{
+      padding:20px;
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03)
+    }
 
-    .avatar-row{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      margin-bottom:12px;
-    }
+    .avatar-row{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:12px;
+    }
 
-    .avatar{
-      width:96px;height:96px;border-radius:16px;
-      display:flex;align-items:center;justify-content:center;
-      overflow: hidden;
-    }
-    .photo-placeholder {
-      width: 100%;height: 100%;object-fit: cover;display: block;
-      box-shadow: 0 0 10px rgba(255,255,255,0.4);
-    }
+    .avatar{
+      width:96px;height:96px;border-radius:16px;
+      display:flex;align-items:center;justify-content:center;
+      overflow: hidden;
+    }
+    .photo-placeholder {
+      width: 100%;height: 100%;object-fit: cover;display: block;
+      box-shadow: 0 0 10px rgba(255,255,255,0.4);
+    }
 
-    .insignia-side{
-      width:96px;
-      height:96px;
-      border-radius:16px;
-      cursor:pointer;
-      transition:.3s;
-      box-shadow: 0 0 10px rgba(255,255,255,0.4);
-    }
-    .insignia-side:hover{
-      transform:scale(1.08);
-      opacity:0.9;
-    }
+    .insignia-side{
+      width:96px;
+      height:96px;
+      border-radius:16px;
+      cursor:pointer;
+      transition:.3s;
+      box-shadow: 0 0 10px rgba(255,255,255,0.4);
+    }
+    .insignia-side:hover{
+      transform:scale(1.08);
+      opacity:0.9;
+    }
 
-    .small{font-size:13px;color:var(--muted)}
+    .small{font-size:13px;color:var(--muted)}
 
-    .contact{margin-top:14px;display:flex;flex-direction:column;gap:8px}
-    .socials{display:flex;gap:8px;margin-top:12px}
-    .socials a{padding:8px 10px;border-radius:8px;background:var(--glass);text-decoration:none;color:var(--muted);font-weight:600}
+    .contact{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+    .socials{display:flex;gap:8px;margin-top:12px}
+    .socials a{padding:8px 10px;border-radius:8px;background:var(--glass);text-decoration:none;color:var(--muted);font-weight:600}
 
-    footer{margin-top:20px;color:var(--muted);font-size:13px;text-align:center}
+    footer{margin-top:20px;color:var(--muted);font-size:13px;text-align:center}
 
-    @media (max-width:980px){
-      main{grid-template-columns:1fr}
-      .projects{grid-template-columns:1fr}
-      header{flex-direction:column;align-items:flex-start}
-    }
+    @media (max-width:980px){
+      main{grid-template-columns:1fr}
+      .projects{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start}
+    }
 
-    .whatsapp-float {
-      position: fixed;
-      width: 62px;
-      height: 62px;
-      bottom: 26px;
-      right: 26px;
-      background-color: #25D366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      z-index: 9999;
-      transition: 0.2s;
-    }
-    .whatsapp-float:hover {
-      transform: scale(1.12);
-    }
-    .whatsapp-logo {
-      width: 36px;
-      height: 36px;
-    }
-  </style>
+    .whatsapp-float {
+      position: fixed;
+      width: 62px;
+      height: 62px;
+      bottom: 26px;
+      right: 26px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      z-index: 9999;
+      transition: 0.2s;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.12);
+    }
+    .whatsapp-logo {
+      width: 36px;
+      height: 36px;
+    }
+  </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo">
-          <img src="profile.jpeg" alt="Logo - Rafael Rodrigues" class="photo-placeholder">
-        </div>
-        <div>
-          <div style="font-weight:700">Rafael Rodrigues - EM CONSTRUÇÃO</div>
-          <div style="font-size:13px;color:var(--muted)">Cientista de Dados</div>
-        </div>
-      </div>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">
+          <img src="profile.jpeg" alt="Logo - Rafael Rodrigues" class="photo-placeholder">
+        </div>
+        <div>
+          <div style="font-weight:700">Rafael Rodrigues - EM CONSTRUÇÃO</div>
+          <div style="font-size:13px;color:var(--muted)">Cientista de Dados</div>
+        </div>
+      </div>
 
-      <nav>
-        <a class="btn" href="#projects">Projetos</a>
-        <a class="btn" href="#about">Sobre</a>
-      </nav>
-    </header>
+      <nav>
+        <a class="btn" href="#projects">Projetos</a>
+        <a class="btn" href="#about">Sobre</a>
+      </nav>
+    </header>
 
-    <main>
-      <section>
-        <article class="hero" id="about">
-            <p>
-                Me chamo Rafael Rodrigues do Carmo, Analista de Dados, com mais de nove anos de experiência e especialidade no ciclo completo: da Engenharia de Dados (SQL, Python, ETL) à Modelagem Preditiva e Visualização de Alto Impacto no Power BI. Sou um profissional orientado à automação e focado em resultados, com destaque para a redução de 60% no tempo de análise gerencial. Certificado (Oracle Certified Professional e Lean Six Sigma), dedico-me a promover a Governança de Dados e impulsionar o valor estratégico do negócio.
-            </p>
-          
-            <p class="lead">Automações, dashboards, banco de dados. Aqui está uma seleção dos meus projetos e resultados.</p>
+    <main>
+      <section>
+        <article class="hero" id="about">
+            <p>
+                Me chamo Rafael Rodrigues do Carmo, Analista de Dados, com mais de nove anos de experiência e especialidade no ciclo completo: da Engenharia de Dados (SQL, Python, ETL) à Modelagem Preditiva e Visualização de Alto Impacto no Power BI. Sou um profissional orientado à automação e focado em resultados, com destaque para a redução de 60% no tempo de análise gerencial. Certificado (Oracle Certified Professional e Lean Six Sigma), dedico-me a promover a Governança de Dados e impulsionar o valor estratégico do negócio.
+            </p>
+          
+            <p class="lead">Automações, dashboards, banco de dados. Aqui está uma seleção dos meus projetos e resultados.</p>
 
-          <div class="skills">
-            <div class="chip">HTML + CSS</div>
-            <div class="chip">JavaScript</div>
-            <div class="chip">Linguagem R</div>
-            <div class="chip">Python</div>
-            <div class="chip">SQL</div>
-          </div>
+          <div class="skills">
+            <div class="chip">HTML + CSS</div>
+            <div class="chip">JavaScript</div>
+            <div class="chip">Linguagem R</div>
+            <div class="chip">Python</div>
+            <div class="chip">SQL</div>
+          </div>
 
-          <div class="projects" id="projects">
-            <div class="card">
-              <h3>Automações em Python</h3>
-              <p>Aqui você encontrará todas minhas automações em python.</p>
-              <div class="project-actions">
-                <a class="btn-outline" href="#" target="_blank">Demo</a>
-                <a class="btn-outline" href="#" target="_blank">Código</a>
-              </div>
-            </div>
+          <div class="projects" id="projects">
+            <div class="card">
+              <h3>Automações em Python</h3>
+              <p>Aqui você encontrará todas minhas automações em python.</p>
+              <div class="project-actions">
+                <a class="btn-outline" href="#" target="_blank">Demo</a>
+                <a class="btn-outline" href="#" target="_blank">Código</a>
+              </div>
+            </div>
 
-            <div class="card">
-              <h3>Dashboard Operacional</h3>
-              <p>Dashboard completo para análise de indicadores usando SQL + Power BI.</p>
-              <div class="project-actions">
-                <a class="btn-outline" href="#" target="_blank">Ver</a>
-                <a class="btn-outline" href="#" target="_blank">Detalhes</a>
-              </div>
-            </div>
+            <div class="card">
+              <h3>Dashboard Operacional</h3>
+              <p>Dashboard completo para análise de indicadores usando SQL + Power BI.</p>
+              <div class="project-actions">
+                <a class="btn-outline" href="#" target="_blank">Ver</a>
+                <a class="btn-outline" href="#" target="_blank">Detalhes</a>
+              </div>
+            </div>
 
-            <div class="card">
-              <h3>Aplicativo Técnico</h3>
-              <p>App para técnicos consultarem estoque, solicitarem materiais e registrarem devolução.</p>
-              <div class="project-actions">
-                <a class="btn-outline" href="#" target="_blank">Demo</a>
-                <a class="btn-outline" href="#" target="_blank">Código</a>
-              </div>
-            </div>
+            <div class="card">
+              <h3>Aplicativo Técnico</h3>
+              <p>App para técnicos consultarem estoque, solicitarem materiais e registrarem devolução.</p>
+              <div class="project-actions">
+                <a class="btn-outline" href="#" target="_blank">Demo</a>
+                <a class="btn-outline" href="#" target="_blank">Código</a>
+              </div>
+            </div>
 
-            <div class="card">
-              <h3>Gerador de Relatórios</h3>
-              <p>Sistema automático para gerar PDFs e planilhas a partir de dados brutos.</p>
-              <div class="project-actions">
-                <a class="btn-outline" href="#" target="_blank">Ver</a>
-                <a class="btn-outline" href="#" target="_blank">Repositório</a>
-              </div>
-            </div>
-          </div>
-        </article>
-      </section>
+            <div class="card">
+              <h3>Gerador de Relatórios</h3>
+              <p>Sistema automático para gerar PDFs e planilhas a partir de dados brutos.</p>
+              <div class="project-actions">
+                <a class="btn-outline" href="#" target="_blank">Ver</a>
+                <a class="btn-outline" href="#" target="_blank">Repositório</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
 
-      <aside>
-        <div class="profile">
+      <aside>
+        <div class="profile">
 
-          <div class="avatar-row">
-            <div class="avatar">
-              <img src="profile.jpeg" alt="Avatar - Rafael Rodrigues" class="photo-placeholder">
-            </div>
+          <div class="avatar-row">
+            <div class="avatar">
+              <img src="profile.jpeg" alt="Avatar - Rafael Rodrigues" class="photo-placeholder">
+            </div>
 
-            <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=DE2623574FECB4F212B86B6643102BD3F75400C39B54DC564A1C1F5B0C9ECB67"
-               target="_blank">
-              <img src="insignia.jpeg" class="insignia-side" alt="Certificação Oracle">
-            </a>
-          </div>
+            <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=DE2623574FECB4F212B86B6643102BD3F75400C39B54DC564A1C1F5B0C9ECB67"
+               target="_blank">
+              <img src="insignia.jpeg" class="insignia-side" alt="Certificação Oracle">
+            </a>
+          </div>
 
-          <div style="font-weight:700">Rafael Rodrigues</div>
-          <div class="small">Desenvolvedor • Analista de Dados • RJ</div>
+          <div style="font-weight:700">Rafael Rodrigues</div>
+          <div class="small">Desenvolvedor • Analista de Dados • RJ</div>
 
-          <div style="margin-top:12px;color:var(--muted);font-size:14px">
-            Crio interfaces, automações e soluções que aceleram processos e geram insights.
-          </div>
+          <div style="margin-top:12px;color:var(--muted);font-size:14px">
+            Crio interfaces, automações e soluções que aceleram processos e geram insights.
+          </div>
 
-          <div class="contact" id="contact">
-            <div class="small">Email</div>
-            <a class="btn" href="mailto:raffaelrdc1204@gmail.com" target="_blank">raffaelrdc1204@gmail.com</a>
+          <div class="contact" id="contact">
+            <div class="small">Email</div>
+            <a class="btn" href="mailto:raffaelrdc1204@gmail.com" target="_blank">raffaelrdc1204@gmail.com</a>
 
-            <div class="small">LinkedIn</div>
-            <a class="btn" href="https://www.linkedin.com/in/rafael-rodrigues-do-carmo-971b881b5/" target="_blank">
-              linkedin.com/in/rafaelrodriguesdc
-            </a>
+            <div class="small">LinkedIn</div>
+            <a class="btn" href="https://www.linkedin.com/in/rafael-rodrigues-do-carmo-971b881b5/" target="_blank">
+              linkedin.com/in/rafaelrodriguesdc
+            </a>
 
-            <div class="small">GitHub</div>
-            <a class="btn" href="https://github.com/rafaelrdc" target="_blank">
-              github.com/rafaelrdc
-            </a>
-          </div>
+            <div class="small">GitHub</div>
+            <a class="btn" href="https://github.com/rafaelrdc" target="_blank">
+              github.com/rafaelrdc
+            </a>
+          </div>
 
-          <div class="socials">
-            <a href="#" target="_blank">Currículo</a>
-            <a href="#" target="_blank">Projetos</a>
-          </div>
-        </div>
-      </aside>
-    </main>
+          <div class="socials">
+            <a href="#" target="_blank">Currículo</a>
+            <a href="#" target="_blank">Projetos</a>
+          </div>
+        </div>
+      </aside>
+    </main>
 
-    <footer>
-      Visitantes: <span id="contador">Carregando...</span>
-    </footer>
+    <footer>
+      Visitantes: <span id="contador">Carregando...</span>
+    </footer>
 
-  </div>
+  </div>
 
-  <a href="https://wa.me/5521980228636" target="_blank" class="whatsapp-float">
-    <img class="whatsapp-logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-  </a>
+  <a href="https://wa.me/5521980228636" target="_blank" class="whatsapp-float">
+    <img class="whatsapp-logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
 
-  <!-- 🔥 CONTADOR REAL VIA COUNTAPI.XYZ -->
-  <script>
-    const contadorSpan = document.getElementById("contador");
+<script type="module">
+  import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-    async function registrarVisita() {
-      try {
-        // Cria o contador caso não exista
-        await fetch("https://api.countapi.xyz/create?namespace=rafaelrdc&key=portfolio&value=0");
+  // CREDENCIAIS CORRIGIDAS
+  const supabaseUrl = 'https://qlntsanxazgnonperdoj.supabase.co';
+  const anonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFsbnRzYW54YXpnbm9ucGVyZG9qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM3NjM0MTgsImV4cCI6MjA3OTMzOTQxOH0.8YLO5gYiPCw2dK3WvRTyeO7YXymbMQNUM8h3YJjnTlo";
 
-        // Incrementa o contador
-        await fetch("https://api.countapi.xyz/hit/rafaelrdc/portfolio");
+  const supabase = createClient(supabaseUrl, anonKey);
 
-        // Busca valor atualizado
-        const resposta = await fetch("https://api.countapi.xyz/get/rafaelrdc/portfolio");
-        const dados = await resposta.json();
+  // Função para buscar e exibir a contagem
+  async function atualizarContador() {
+    const contadorElement = document.getElementById("contador");
+    
+    // Tenta buscar a contagem (SELECT)
+    const { count, error } = await supabase
+      .from("visitors") // Nome da tabela: visitors
+      .select("*", { count: "exact", head: true });
 
-        contadorSpan.textContent = dados.value.toLocaleString("pt-BR");
-
-      } catch (e) {
-        contadorSpan.textContent = "Erro";
-        console.error("Erro no contador:", e);
-      }
+    if (error) {
+      console.error("Erro ao buscar contagem (SELECT):", error.message);
+      // Se a contagem falhar, exibe 0 (Erro)
+      contadorElement.innerText = '0 (Erro na Contagem)';
+      return; 
     }
 
-    registrarVisita();
-  </script>
+    // Se o SELECT funcionar, exibe a contagem
+    contadorElement.innerText = count;
+  }
+
+  // Função para registrar a visita e depois atualizar o contador
+  async function registrarVisitaEContar() {
+    
+    // Tenta inserir a nova visita (INSERT)
+    // O erro 401 que está ocorrendo está aqui, no POST/INSERT
+    const { error } = await supabase.from("visitors").insert([{ ip: null }]); // ip: null
+    
+    if (error) {
+      // Se o INSERT falhar (401), registra o erro, mas continua para a contagem.
+      console.warn("Falha ao registrar a visita (INSERT). Motivo:", error.message);
+    }
+    
+    // Tenta atualizar o contador DEPOIS da tentativa de INSERT.
+    // Isso garante que o usuário verá o número 0 (ou o número real) mesmo se o INSERT falhar.
+    atualizarContador();
+  }
+
+  // Inicia o processo
+  registrarVisitaEContar();
+</script>
 
 </body>
 </html>
