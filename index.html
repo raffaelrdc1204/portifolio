@@ -278,7 +278,8 @@
 
  const supabase = createClient(
     "https://qlntsanxazgnonperdoj.supabase.co", // URL do Projeto
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFsbnRzYW54YXpnbm9ucGVyZG9qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM3NjM0MTgsImV4cCI6MjA3OTMzOTQxOH0.8YLO5gYiPCw2dK3WvRTyeO7YXymbMQNUM8h3YJjnTlo" // SUA CHAVE COMPLETA
+    // Deve ser uma única string longa dentro das aspas
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFsbnRzYW54YXpnbm9ucGVyZG9qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM3NjM0MTgsImV4cCI6MjA3OTMzOTQxOH0.8YLO5gYiPCw2dK3WvRTyeO7YXymbMQNUM8h3YJjnTlo" // SUA CHAVE COMPLETA
   );
 
   async function registrarVisita() {
@@ -299,6 +300,7 @@
 
 </body>
 </html>
+
 
 
 
