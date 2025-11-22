@@ -276,10 +276,10 @@
 <script type="module">
   import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-  const supabase = createClient(
-    "https://qlntsanxazgnonperdoj.supabase.co",
-    "sb_publishable_7oFIizz5sCs6Ww6plcviUA_QUvhL4_A"
-  );
+ const supabase = createClient(
+    "https://qlntsanxazgnonperdoj.supabase.co", // URL do Projeto
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFsbnRzYW54YXpnbm9ucGVyZG9qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM3NjM0MTgsImV4cCI6MjA3OTMzOTQxOH0.8YLO5gYiPCw2dK3WvRTyeO7YXymbMQNUM8h3YJjnTlo" // SUA CHAVE COMPLETA
+  );
 
   async function registrarVisita() {
     await supabase.from("visitors").insert([{ ip: null }]);
@@ -299,6 +299,7 @@
 
 </body>
 </html>
+
 
 
 
