@@ -270,60 +270,37 @@
 
   <a href="https://wa.me/5521980228636" target="_blank" class="whatsapp-float">
     <img class="whatsapp-logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-    </a>
+  </a>
 
+<!-- CONTADOR REAL TOTAL (SUPABASE) -->
 <script type="module">
-  import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+  import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-  // CREDENCIAIS CORRIGIDAS
-  const supabaseUrl = 'https://qlntsanxazgnonperdoj.supabase.co';
-  const anonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFsbnRzYW54YXpnbm9ucGVyZG9qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM3NjM0MTgsImV4cCI6MjA3OTMzOTQxOH0.8YLO5gYiPCw2dK3WvRTyeO7YXymbMQNUM8h3YJjnTlo";
+ const supabase = createClient(
+    "https://qlntsanxazgnonperdoj.supabase.co", // URL do Projeto
+    // Deve ser uma única string longa dentro das aspas
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFsbnRzYW54YXpnbm9ucGVyZG9qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM3NjM0MTgsImV4cCI6MjA3OTMzOTQxOH0.8YLO5gYiPCw2dK3WvRTyeO7YXymbMQNUM8h3YJjnTlo" // SUA CHAVE COMPLETA
+  );
 
-  const supabase = createClient(supabaseUrl, anonKey);
+  async function registrarVisita() {
+    await supabase.from("visitors").insert([{ ip: null }]);
+    atualizarContador();
+  }
 
-  // Função para buscar e exibir a contagem
-  async function atualizarContador() {
-    const contadorElement = document.getElementById("contador");
-    
-    // Tenta buscar a contagem (SELECT)
-    const { count, error } = await supabase
-      .from("visitors") // Nome da tabela: visitors
-      .select("*", { count: "exact", head: true });
+  async function atualizarContador() {
+    const { count } = await supabase
+      .from("visitors")
+      .select("*", { count: "exact", head: true });
 
-    if (error) {
-      console.error("Erro ao buscar contagem (SELECT):", error.message);
-      // Se a contagem falhar, exibe 0 (Erro)
-      contadorElement.innerText = '0 (Erro na Contagem)';
-      return; 
-    }
+    document.getElementById("contador").innerText = count;
+  }
 
-    // Se o SELECT funcionar, exibe a contagem
-    contadorElement.innerText = count;
-  }
-
-  // Função para registrar a visita e depois atualizar o contador
-  async function registrarVisitaEContar() {
-    
-    // Tenta inserir a nova visita (INSERT)
-    // O erro 401 que está ocorrendo está aqui, no POST/INSERT
-    const { error } = await supabase.from("visitors").insert([{ ip: null }]); // ip: null
-    
-    if (error) {
-      // Se o INSERT falhar (401), registra o erro, mas continua para a contagem.
-      console.warn("Falha ao registrar a visita (INSERT). Motivo:", error.message);
-    }
-    
-    // Tenta atualizar o contador DEPOIS da tentativa de INSERT.
-    // Isso garante que o usuário verá o número 0 (ou o número real) mesmo se o INSERT falhar.
-    atualizarContador();
-  }
-
-  // Inicia o processo
-  registrarVisitaEContar();
+  registrarVisita();
 </script>
 
 </body>
 </html>
+
 
 
 
