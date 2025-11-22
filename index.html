@@ -273,17 +273,18 @@
         .select("*", { count: "exact", head: true });
 
       if (error) {
-        console.error("Erro ao contar visitas:", error);
+        console.error("Erro ao contar visita:", error);
         return;
       }
 
-      document.getElementById("visitas").textContent = count || 0;
+      document.getElementById("visita").textContent = count || 0;
     });
   </script>
 
 
 </body>
 </html>
+
 
 
 
