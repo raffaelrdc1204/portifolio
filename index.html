@@ -272,33 +272,37 @@
     <img class="whatsapp-logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   </a>
 
-<!-- CONTADOR REAL TOTAL (SUPABASE) -->
-<script type="module">
-  import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+  <!-- 🔥 CONTADOR REAL VIA COUNTAPI.XYZ -->
+  <script>
+    const contadorSpan = document.getElementById("contador");
 
-  const supabase = createClient(
-    "https://qlntsanxazgnonperdoj.supabase.co",
-    "sb_publishable_7oFIizz5sCs6Ww6plcviUA_QUvhL4_A"
-  );
+    async function registrarVisita() {
+      try {
+        // Cria o contador caso não exista
+        await fetch("https://api.countapi.xyz/create?namespace=rafaelrdc&key=portfolio&value=0");
 
-  async function registrarVisita() {
-    await supabase.from("visits").insert([{ ip: null }]);
-    atualizarContador();
-  }
+        // Incrementa o contador
+        await fetch("https://api.countapi.xyz/hit/rafaelrdc/portfolio");
 
-  async function atualizarContador() {
-    const { count } = await supabase
-      .from("visits")
-      .select("*", { count: "exact", head: true });
+        // Busca valor atualizado
+        const resposta = await fetch("https://api.countapi.xyz/get/rafaelrdc/portfolio");
+        const dados = await resposta.json();
 
-    document.getElementById("contador").innerText = count;
-  }
+        contadorSpan.textContent = dados.value.toLocaleString("pt-BR");
 
-  registrarVisita();
-</script>
+      } catch (e) {
+        contadorSpan.textContent = "Erro";
+        console.error("Erro no contador:", e);
+      }
+    }
+
+    registrarVisita();
+  </script>
 
 </body>
 </html>
+
+
 
 
 
