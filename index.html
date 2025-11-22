@@ -275,9 +275,9 @@
 <script type="module">
   import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-  // CREDENCIAIS CORRIGIDAS
+  // CREDENCIAIS AGORA COM A NOVA CHAVE
   const supabaseUrl = 'https://qlntsanxazgnonperdoj.supabase.co';
-  const anonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFsbnRzYW54YXpnbm9ucGVyZG9qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM3NjM0MTgsImV4cCI6MjA3OTMzOTQxOH0.8YLO5gYiPCw2dK3WvRTyeO7YXymbMQNUM8h3YJjnTlo";
+  const anonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFsbnRzYW54YXpnbm9ucGVyZG9qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM3NzA4MjksImV4cCI6MjA3OTEzMDgyOX0.qsxH0390_IBe-Dm6NG-pNcyNX6Sp3zI1tHO788JHhKI'; 
 
   const supabase = createClient(supabaseUrl, anonKey);
 
@@ -287,12 +287,11 @@
     
     // Tenta buscar a contagem (SELECT)
     const { count, error } = await supabase
-      .from("visitors") // Nome da tabela: visitors
+      .from("visitors")
       .select("*", { count: "exact", head: true });
 
     if (error) {
       console.error("Erro ao buscar contagem (SELECT):", error.message);
-      // Se a contagem falhar, exibe 0 (Erro)
       contadorElement.innerText = '0 (Erro na Contagem)';
       return; 
     }
@@ -304,17 +303,14 @@
   // Função para registrar a visita e depois atualizar o contador
   async function registrarVisitaEContar() {
     
-    // Tenta inserir a nova visita (INSERT)
-    // O erro 401 que está ocorrendo está aqui, no POST/INSERT
-    const { error } = await supabase.from("visitors").insert([{ ip: null }]); // ip: null
+    // Tenta inserir a nova visita (INSERT) - O erro 401 deve ser resolvido aqui!
+    const { error } = await supabase.from("visitors").insert([{ ip: null }]);
     
     if (error) {
-      // Se o INSERT falhar (401), registra o erro, mas continua para a contagem.
       console.warn("Falha ao registrar a visita (INSERT). Motivo:", error.message);
     }
     
     // Tenta atualizar o contador DEPOIS da tentativa de INSERT.
-    // Isso garante que o usuário verá o número 0 (ou o número real) mesmo se o INSERT falhar.
     atualizarContador();
   }
 
@@ -324,6 +320,7 @@
 
 </body>
 </html>
+
 
 
 
