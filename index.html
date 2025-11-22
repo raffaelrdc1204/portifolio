@@ -254,36 +254,30 @@
   </a>
 
 <script>
-    document.addEventListener("DOMContentLoaded", async () => {
-      const SUPABASE_URL = "sb_publishable_7oFIizz5sCs6Ww6plcviUA_QUvhL4_A";
-      const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFsbnRzYW54YXpnbm9ucGVyZG9qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM3NzA4MjksImV4cCI6MjA3OTEzMDgyOX0.qsxH0390_IBe-Dm6NG-pNcyNX6Sp3zI1tHO788JHhKI";
+document.addEventListener("DOMContentLoaded", async () => {
+  const SUPABASE_URL = "https://qlntsanxazgnonperdoj.supabase.co";
+  const SUPABASE_KEY =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFsbnRzYW54YXpnbm9ucGVyZG9qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM3NzA4MjksImV4cCI6MjA3OTEzMDgyOX0.qsxH0390_IBe-Dm6NG-pNcyNX6Sp3zI1tHO788JHhKI";
 
-      const { createClient } = supabase;
-      const db = createClient(SUPABASE_URL, SUPABASE_KEY);
+  const { createClient } = supabase;
+  const db = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-      // 🔥 1 — REGISTRA VISITA SEM IP (INSERE UMA LINHA)
-      const insertResult = await db.from("visita").insert({});
-      if (insertResult.error) {
-        console.error("Erro ao registrar visita:", insertResult.error);
-      }
+  // INSERE UMA VISITA
+  await db.from("visita").insert({});
 
-      // 🔥 2 — BUSCA CONTAGEM TOTAL
-      const { count, error } = await db
-        .from("visita")
-        .select("*", { count: "exact", head: true });
+  // CONTA AS VISITAS
+  const { count } = await db
+    .from("visita")
+    .select("*", { count: "exact", head: true });
 
-      if (error) {
-        console.error("Erro ao contar visita:", error);
-        return;
-      }
-
-      document.getElementById("visita").textContent = count || 0;
-    });
-  </script>
+  document.getElementById("visitas").textContent = count || 0;
+});
+</script>
 
 
 </body>
 </html>
+
 
 
 
