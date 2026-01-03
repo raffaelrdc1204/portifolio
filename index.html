@@ -78,6 +78,7 @@
       text-decoration: none;
       color: var(--muted);
       font-weight: 600;
+      display: inline-block;
     }
 
     a.cta {
@@ -148,21 +149,6 @@
       font-size: 14px;
     }
 
-    .project-actions {
-      margin-top: 10px;
-      display: flex;
-      gap: 8px;
-    }
-
-    .btn-outline {
-      padding: 6px 10px;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.06);
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
     aside {
       position: relative;
     }
@@ -227,116 +213,16 @@
       flex-direction: column;
       gap: 8px;
     }
-
-    footer {
-      margin-top: 20px;
-      color: var(--muted);
-      font-size: 13px;
-      text-align: center;
-    }
-
-    @media (max-width: 980px) {
-      main {
-        grid-template-columns: 1fr;
-      }
-
-      .projects {
-        grid-template-columns: 1fr;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    .whatsapp-float {
-      position: fixed;
-      bottom: 26px;
-      right: 26px;
-      width: 62px;
-      height: 62px;
-      background-color: #25D366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      z-index: 9999;
-      transition: 0.2s;
-    }
-
-    .whatsapp-float:hover {
-      transform: scale(1.12);
-    }
-
-    .whatsapp-logo {
-      width: 36px;
-      height: 36px;
-    }
   </style>
 </head>
 
 <body>
   <div class="wrap">
 
-    <header>
-      <div class="brand">
-        <div class="logo">
-          <img src="profile.jpeg" class="photo-placeholder" alt="Avatar">
-        </div>
-        <div>
-          <div style="font-weight:700">Rafael Rodrigues - EM CONSTRUÇÃO</div>
-          <div style="font-size:13px;color:var(--muted)">Cientista de Dados</div>
-        </div>
-      </div>
-    </header>
-
     <main>
-      <section>
-        <article class="hero" id="about">
-          <p>
-            Me chamo Rafael Rodrigues, Cientista de Dados, com mais de nove anos de
-            experiência e especialidade no ciclo completo: da Engenharia de Dados
-            (SQL, Python, ETL) à Modelagem Preditiva e Visualização de Alto Impacto
-            no Power BI.
-          </p>
-
-          <div class="skills">
-            <div class="chip">HTML + CSS</div>
-            <div class="chip">Python</div>
-            <div class="chip">PowerBi</div>
-            <div class="chip">JavaScript</div>
-            <div class="chip">Linguagem R</div>
-            <div class="chip">SQL</div>
-          </div>
-
-          <div class="projects" id="projects">
-            <div class="card">
-              <h3>Automações em Python</h3>
-              <p>Aqui você encontrará todas minhas automações em python.</p>
-            </div>
-
-            <div class="card">
-              <h3>Dashboard Operacional</h3>
-              <p>Dashboard completo para análise de indicadores.</p>
-            </div>
-
-            <div class="card">
-              <h3>Aplicativo Técnico</h3>
-              <p>App para técnicos consultarem estoque.</p>
-            </div>
-
-            <div class="card">
-              <h3>Gerador de Relatórios</h3>
-              <p>Sistema automático para PDF e planilhas.</p>
-            </div>
-          </div>
-        </article>
-      </section>
-
       <aside>
         <div class="profile">
+
           <div class="avatar-row">
             <div class="avatar">
               <img src="profile.jpeg" class="photo-placeholder" alt="Avatar pequeno">
@@ -345,6 +231,14 @@
               <img src="insignia.jpeg" class="insignia-side" alt="Insígnia Oracle">
             </a>
           </div>
+
+          <!-- BOTÃO ADICIONADO (única inclusão) -->
+          <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=DE2623574FECB4F212B86B6643102BD3F75400C39B54DC564A1C1F5B0C9ECB67"
+             target="_blank"
+             class="btn"
+             style="margin-bottom:12px;">
+            📜 Certificações
+          </a>
 
           <div style="font-weight:700">Rafael Rodrigues</div>
           <div class="small">Desenvolvedor • Analista de Dados • RJ</div>
@@ -364,63 +258,16 @@
               linkedin.com/in/rafaelrodriguesdc
             </a>
           </div>
+
         </div>
       </aside>
     </main>
 
-    <footer>
-      Visitantes: <span id="contador">Carregando...</span>
-    </footer>
-
   </div>
-
-  <a href="https://wa.me/5521980228636" target="_blank" class="whatsapp-float">
-    <img class="whatsapp-logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-  </a>
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", async () => {
-      const SUPABASE_URL = "https://qlntsanxazgnonperdoj.supabase.co";
-      const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFsbnRzYW54YXpnbm9ucGVyZG9qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM3NzA4MjksImV4cCI6MjA3OTEzMDgyOX0.qsxH0390_IBe-Dm6NG-pNcyNX6Sp3zI1tHO788JHhKI";
-
-      const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-      const contadorElement = document.getElementById("contador");
-
-      async function atualizarContador() {
-        const { count, error } = await supabase
-          .from("visita")
-          .select("*", { count: "exact", head: true });
-
-        if (error) {
-          contadorElement.textContent = "Erro";
-          return;
-        }
-
-        contadorElement.textContent = count ?? 0;
-      }
-
-      await supabase
-        .from("visita")
-        .insert([{ created_at: new Date().toISOString() }]);
-
-      await atualizarContador();
-
-      supabase
-        .channel("visita-count")
-        .on(
-          "postgres_changes",
-          { event: "INSERT", schema: "public", table: "visita" },
-          () => {
-            let atual = parseInt(contadorElement.textContent) || 0;
-            contadorElement.textContent = atual + 1;
-          }
-        )
-        .subscribe();
-    });
-  </script>
 </body>
 </html>
+
+
 
 
 
