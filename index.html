@@ -18,7 +18,9 @@
       --max-width: 1100px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html, body {
       height: 100%;
@@ -79,6 +81,12 @@
       box-shadow: 0 6px 30px rgba(2,6,23,0.6);
     }
 
+    .hero p:first-of-type {
+      margin-top: 0;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
     .skills {
       display: flex;
       flex-wrap: wrap;
@@ -106,25 +114,86 @@
       padding: 14px;
       border-radius: 12px;
       border: 1px solid rgba(255,255,255,0.03);
-      cursor: pointer;
-      transition: .2s;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0,0,0,.4);
+    .card h3 {
+      margin: 0 0 8px 0;
     }
 
-    .card h3 { margin: 0 0 8px; }
-    .card p { margin: 0; color: var(--muted); font-size: 14px; }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
 
-    aside { position: relative; }
+    aside {
+      position: relative;
+    }
 
     .profile {
       padding: 20px;
       border-radius: var(--radius);
       background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
       border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .avatar-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(255,255,255,0.4);
+    }
+
+    .insignia-side {
+      width: 96px;
+      height: 96px;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: .3s;
+      box-shadow: 0 0 10px rgba(255,255,255,0.4);
+    }
+
+    .insignia-side:hover {
+      transform: scale(1.08);
+      opacity: 0.9;
+    }
+
+    .small {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .contact {
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    a.btn {
+      background: var(--glass);
+      padding: 8px 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 600;
     }
 
     footer {
@@ -134,114 +203,203 @@
       text-align: center;
     }
 
-    /* ===== MODAL (ADICIONADO) ===== */
-    .modal-overlay {
+    @media (max-width: 980px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .whatsapp-float {
       position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.65);
-      display: none;
+      bottom: 26px;
+      right: 26px;
+      width: 62px;
+      height: 62px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 10000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      z-index: 9999;
+      transition: 0.2s;
     }
 
-    .modal {
-      background: var(--card);
-      padding: 22px;
-      max-width: 520px;
-      width: 90%;
-      border-radius: 16px;
-      box-shadow: 0 20px 50px rgba(0,0,0,.6);
+    .whatsapp-float:hover {
+      transform: scale(1.12);
     }
 
-    .modal h3 { margin-top: 0; }
-    .modal p { color: var(--muted); }
-
-    .modal button {
-      margin-top: 16px;
-      background: var(--accent);
-      border: none;
-      padding: 10px 14px;
-      border-radius: 10px;
-      color: #fff;
-      cursor: pointer;
+    .whatsapp-logo {
+      width: 36px;
+      height: 36px;
     }
   </style>
 </head>
 
 <body>
-<div class="wrap">
+  <div class="wrap">
 
-<main>
-<section>
-<div class="projects">
+    <header>
+      <div class="brand">
+        <div class="logo">
+          <img src="profile.jpeg" class="photo-placeholder" alt="Avatar">
+        </div>
+        <div>
+          <div style="font-weight:700">Rafael Rodrigues - EM CONSTRUÇÃO</div>
+          <div style="font-size:13px;color:var(--muted)">Cientista de Dados</div>
+        </div>
+      </div>
+    </header>
 
-<div class="card"
- data-title="Automações em Python"
- data-content="Automação de processos corporativos com Python, ETL, Selenium, APIs, Excel e WhatsApp.">
-<h3>Automações em Python</h3>
-<p>Aqui você encontrará todas minhas automações em Python.</p>
-</div>
+    <main>
+      <section>
+        <article class="hero" id="about">
+          <p>
+            Me chamo Rafael Rodrigues, Cientista de Dados, com mais de nove anos de
+            experiência e especialidade no ciclo completo: da Engenharia de Dados
+            (SQL, Python, ETL) à Modelagem Preditiva e Visualização de Alto Impacto
+            no Power BI.
+          </p>
 
-<div class="card"
- data-title="Dashboard Operacional"
- data-content="Dashboards em Power BI com KPIs, métricas operacionais e visão executiva.">
-<h3>Dashboard Operacional</h3>
-<p>Dashboard completo para análise de indicadores.</p>
-</div>
+          <div class="skills">
+            <div class="chip">HTML + CSS</div>
+            <div class="chip">Python</div>
+            <div class="chip">Power BI</div>
+            <div class="chip">JavaScript</div>
+            <div class="chip">Linguagem R</div>
+            <div class="chip">SQL</div>
+          </div>
 
-<div class="card"
- data-title="Aplicativo Técnico"
- data-content="Aplicativo web e mobile para controle de estoque, requisições e devoluções.">
-<h3>Aplicativo Técnico</h3>
-<p>App para técnicos consultarem estoque.</p>
-</div>
+          <div class="projects" id="projects">
+            <div class="card">
+              <h3>Automações em Python</h3>
+              <p>Aqui você encontrará todas minhas automações em Python.</p>
+            </div>
 
-<div class="card"
- data-title="Gerador de Relatórios"
- data-content="Sistema automático para geração de PDFs, relatórios e planilhas inteligentes.">
-<h3>Gerador de Relatórios</h3>
-<p>Sistema automático para PDF e planilhas.</p>
-</div>
+            <div class="card">
+              <h3>Dashboard Operacional</h3>
+              <p>Dashboard completo para análise de indicadores.</p>
+            </div>
 
-</div>
-</section>
-</main>
+            <div class="card">
+              <h3>Aplicativo Técnico</h3>
+              <p>App para técnicos consultarem estoque.</p>
+            </div>
 
-<footer>
-Visitantes: <span id="contador">Carregando...</span>
-</footer>
+            <div class="card">
+              <h3>Gerador de Relatórios</h3>
+              <p>Sistema automático para PDF e planilhas.</p>
+            </div>
+          </div>
+        </article>
+      </section>
 
-</div>
+      <aside>
+        <div class="profile">
+          <div class="avatar-row">
+            <div class="avatar">
+              <img src="profile.jpeg" class="photo-placeholder" alt="Avatar pequeno">
+            </div>
 
-<!-- MODAL (ADICIONADO) -->
-<div class="modal-overlay" id="modal">
-  <div class="modal">
-    <h3 id="modal-title"></h3>
-    <p id="modal-content"></p>
-    <button id="closeModal">Fechar</button>
+            <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=DE2623574FECB4F212B86B6643102BD3F75400C39B54DC564A1C1F5B0C9ECB67" target="_blank">
+              <img src="insignia.jpeg" class="insignia-side" alt="Insígnia Oracle">
+            </a>
+          </div>
+
+          <div style="font-weight:700">Rafael Rodrigues</div>
+          <div class="small">Desenvolvedor • Analista de Dados • RJ</div>
+
+          <div style="margin-top:12px;color:var(--muted);font-size:14px">
+            Crio interfaces, automações e soluções que aceleram processos.
+          </div>
+
+          <div class="contact" id="contact">
+            <div class="small">Email</div>
+            <a class="btn" href="https://mail.google.com" target="_blank">
+              raffaelrdc1204@gmail.com
+            </a>
+
+            <div class="small">LinkedIn</div>
+            <a class="btn" href="https://www.linkedin.com/in/rafael-rodrigues-do-carmo-971b881b5/" target="_blank">
+              linkedin.com/in/rafaelrodriguesdc
+            </a>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      Visitantes: <span id="contador">Carregando...</span>
+    </footer>
+
   </div>
-</div>
 
-<script>
-  const modal = document.getElementById("modal");
-  const title = document.getElementById("modal-title");
-  const content = document.getElementById("modal-content");
+  <a href="https://wa.me/5521980228636" target="_blank" class="whatsapp-float">
+    <img class="whatsapp-logo"
+         src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+         alt="WhatsApp">
+  </a>
 
-  document.querySelectorAll(".card").forEach(card => {
-    card.addEventListener("click", () => {
-      title.textContent = card.dataset.title;
-      content.textContent = card.dataset.content;
-      modal.style.display = "flex";
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+
+      const SUPABASE_URL = "https://qlntsanxazgnonperdoj.supabase.co";
+      const SUPABASE_KEY = "SUA_ANON_KEY_AQUI";
+
+      const supabaseClient = supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+      );
+
+      const contadorElement = document.getElementById("contador");
+
+      async function atualizarContador() {
+        const { count, error } = await supabaseClient
+          .from("visita")
+          .select("*", { count: "exact", head: true });
+
+        if (error) {
+          contadorElement.textContent = "Erro";
+          return;
+        }
+
+        contadorElement.textContent = count ?? 0;
+      }
+
+      await supabaseClient
+        .from("visita")
+        .insert([{ created_at: new Date().toISOString() }]);
+
+      await atualizarContador();
+
+      supabaseClient
+        .channel("visita-count")
+        .on(
+          "postgres_changes",
+          { event: "INSERT", schema: "public", table: "visita" },
+          () => {
+            let atual = parseInt(contadorElement.textContent) || 0;
+            contadorElement.textContent = atual + 1;
+          }
+        )
+        .subscribe();
     });
-  });
-
-  document.getElementById("closeModal").onclick = () => modal.style.display = "none";
-  modal.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
-</script>
-
+  </script>
 </body>
 </html>
+
+
 
 
 
