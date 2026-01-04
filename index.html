@@ -7,15 +7,27 @@
   <meta name="description" content="Portfólio pessoal — projetos, sobre e contato." />
 
   <style>
-    :root {
-  --bg: #f8fafc;
-  --surface: #ffffff;
+    /* ================= ROOT / THEME ================= */
+:root {
+  /* Fundos */
+  --bg: #f1f5f9;
+  --surface: #f8fafc;
   --card: #ffffff;
+
+  /* Texto */
+  --text: #0f172a;
   --muted: #64748b;
-  --text: #0f1724;
-  --border: rgba(15, 23, 36, 0.06);
-  --shadow-soft: 0 6px 24px rgba(15, 23, 36, 0.08);
-  --shadow-light: 0 4px 16px rgba(15, 23, 36, 0.06);
+
+  /* Cor primária (destaque profissional) */
+  --primary: #2563eb;
+  --primary-soft: #dbeafe;
+
+  /* Bordas e sombras */
+  --border: rgba(15, 23, 42, 0.08);
+  --shadow-soft: 0 10px 32px rgba(15, 23, 42, 0.08);
+  --shadow-light: 0 4px 16px rgba(15, 23, 42, 0.06);
+
+  /* Layout */
   --radius: 14px;
   --max-width: 1100px;
 }
@@ -45,38 +57,37 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 
 .brand {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   align-items: center;
 }
 
 .logo {
   width: 52px;
   height: 52px;
-  border-radius: 12px;
+  border-radius: 14px;
   background: var(--surface);
   box-shadow: var(--shadow-light);
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 
 /* ================= MAIN ================= */
 main {
   display: grid;
   grid-template-columns: 1fr 360px;
-  gap: 28px;
+  gap: 32px;
 }
 
 /* ================= HERO ================= */
 .hero {
-  background: var(--surface);
-  padding: 28px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  padding: 32px;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
@@ -85,7 +96,7 @@ main {
 .hero p:first-of-type {
   margin-top: 0;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 /* ================= SKILLS ================= */
@@ -93,42 +104,44 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 14px;
+  margin-top: 18px;
 }
 
 .chip {
-  background: #f1f5f9;
-  padding: 8px 12px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  padding: 8px 14px;
   border-radius: 999px;
   font-size: 13px;
-  color: var(--muted);
-  border: 1px solid var(--border);
+  font-weight: 500;
+  border: 1px solid rgba(37, 99, 235, 0.2);
 }
 
 /* ================= PROJECTS ================= */
 .projects {
-  margin-top: 18px;
+  margin-top: 22px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  gap: 14px;
 }
 
 .card {
   background: var(--card);
-  padding: 16px;
-  border-radius: 12px;
+  padding: 18px;
+  border-radius: 14px;
   border: 1px solid var(--border);
   box-shadow: var(--shadow-light);
-  transition: .2s ease;
+  transition: transform .2s ease, box-shadow .2s ease;
 }
 
 .card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-soft);
 }
 
 .card h3 {
   margin: 0 0 8px 0;
+  font-size: 16px;
 }
 
 .card p {
@@ -143,25 +156,24 @@ aside {
 }
 
 .profile {
-  padding: 22px;
+  padding: 24px;
   border-radius: var(--radius);
   background: var(--surface);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
-  color: var(--text);
 }
 
 .avatar-row {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .avatar {
   width: 96px;
   height: 96px;
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
   background: #e5e7eb;
   display: flex;
@@ -178,9 +190,9 @@ aside {
 .insignia-side {
   width: 96px;
   height: 96px;
-  border-radius: 16px;
+  border-radius: 18px;
   cursor: pointer;
-  transition: .3s ease;
+  transition: transform .25s ease, opacity .25s ease;
 }
 
 .insignia-side:hover {
@@ -196,30 +208,31 @@ aside {
 
 /* ================= CONTACT ================= */
 .contact {
-  margin-top: 14px;
+  margin-top: 18px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 a.btn {
-  background: #f1f5f9;
-  padding: 10px 14px;
-  border-radius: 10px;
+  background: var(--primary);
+  padding: 12px 16px;
+  border-radius: 12px;
   text-decoration: none;
-  color: var(--text);
+  color: #ffffff;
   font-weight: 600;
-  border: 1px solid var(--border);
-  transition: .2s ease;
+  text-align: center;
+  transition: background .2s ease, transform .2s ease;
 }
 
 a.btn:hover {
-  background: #e9eef5;
+  background: #1d4ed8;
+  transform: translateY(-2px);
 }
 
 /* ================= FOOTER ================= */
 footer {
-  margin-top: 20px;
+  margin-top: 28px;
   color: var(--muted);
   font-size: 13px;
   text-align: center;
@@ -253,13 +266,13 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   z-index: 9999;
-  transition: .2s ease;
+  transition: transform .2s ease;
 }
 
 .whatsapp-float:hover {
-  transform: scale(1.1);
+  transform: scale(1.12);
 }
 
 .whatsapp-logo {
@@ -414,6 +427,7 @@ footer {
   </script>
 </body>
 </html>
+
 
 
 
