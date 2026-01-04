@@ -8,226 +8,264 @@
 
   <style>
     :root {
-      --bg: #f1f5f9;
-      --card: #f4f6f9;
-      --muted: #5f6b7a;
-      --accent: #7c3aed;
-      --glass: rgba(0,0,0,0.04);
-      --radius: 14px;
-      --max-width: 1100px;
-    }
-
-    * { box-sizing: border-box; }
-
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
-
-    body {
-      font-family: Inter, ui-sans-serif, system-ui;
-      background: #f1f5f9;
-      color: #0f1724;
-      -webkit-font-smoothing: antialiased;
-      line-height: 1.45;
-      padding: 32px 16px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .wrap {
-      width: 100%;
-      max-width: var(--max-width);
-      min-width: 320px;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-
-    .brand {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .logo {
-      width: 52px;
-      height: 52px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    main {
-      display: grid;
-      grid-template-columns: 1fr 360px;
-      gap: 28px;
-    }
-
-    .hero {
-      background: #f1f5f9;
-      padding: 28px;
-      border-radius: var(--radius);
-      box-shadow: 0 6px 30px rgba(0,0,0,0.08);
-    }
-
-    .hero p:first-of-type {
-      margin-top: 0;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 14px;
-    }
-
-    .chip {
-      background: #f5f6f8;
-      padding: 8px 10px;
-      border-radius: 999px;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .projects {
-      margin-top: 18px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    .card {
-      background: var(--card);
-      padding: 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .card h3 {
-      margin: 0 0 8px 0;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    aside { position: relative; }
-
-    .profile {
-  padding: 20px;
-  border-radius: 12px;
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 36, 0.06);
-  box-shadow: 0 6px 20px rgba(15, 23, 36, 0.08);
-  color: #0f1724;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --card: #ffffff;
+  --muted: #64748b;
+  --text: #0f1724;
+  --border: rgba(15, 23, 36, 0.06);
+  --shadow-soft: 0 6px 24px rgba(15, 23, 36, 0.08);
+  --shadow-light: 0 4px 16px rgba(15, 23, 36, 0.06);
+  --radius: 14px;
+  --max-width: 1100px;
 }
 
-    .avatar-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 12px;
-    }
+/* ================= BODY ================= */
+body {
+  font-family: Inter, ui-sans-serif, system-ui;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.55;
+  padding: 32px 16px;
+  display: flex;
+  justify-content: center;
+}
 
-    .avatar {
-      width: 96px;
-      height: 96px;
-      border-radius: 16px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+/* ================= WRAP ================= */
+.wrap {
+  width: 100%;
+  max-width: var(--max-width);
+  min-width: 320px;
+}
 
-    .photo-placeholder {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+/* ================= HEADER ================= */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
 
-    .insignia-side {
-      width: 96px;
-      height: 96px;
-      border-radius: 16px;
-      cursor: pointer;
-      transition: .3s;
-    }
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
 
-    .insignia-side:hover {
-      transform: scale(1.08);
-      opacity: 0.9;
-    }
+.logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: var(--shadow-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
 
-    .small {
-      font-size: 13px;
-      color: var(--muted);
-    }
+/* ================= MAIN ================= */
+main {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 28px;
+}
 
-    .contact {
-      margin-top: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
+/* ================= HERO ================= */
+.hero {
+  background: var(--surface);
+  padding: 28px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+}
 
-    a.btn {
-      background: #f0f2f6;
-      padding: 8px 12px;
-      border-radius: 10px;
-      text-decoration: none;
-      color: #0f1724;
-      font-weight: 600;
-    }
+.hero p:first-of-type {
+  margin-top: 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
 
-    footer {
-      margin-top: 20px;
-      color: var(--muted);
-      font-size: 13px;
-      text-align: center;
-    }
+/* ================= SKILLS ================= */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
 
-    @media (max-width: 980px) {
-      main { grid-template-columns: 1fr; }
-      .projects { grid-template-columns: 1fr; }
-      header { flex-direction: column; align-items: flex-start; }
-    }
+.chip {
+  background: #f1f5f9;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
 
-    .whatsapp-float {
-      position: fixed;
-      bottom: 26px;
-      right: 26px;
-      width: 62px;
-      height: 62px;
-      background-color: #25D366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      z-index: 9999;
-      transition: 0.2s;
-    }
+/* ================= PROJECTS ================= */
+.projects {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
 
-    .whatsapp-float:hover {
-      transform: scale(1.12);
-    }
+.card {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-light);
+  transition: .2s ease;
+}
 
-    .whatsapp-logo {
-      width: 36px;
-      height: 36px;
-    }
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+.card h3 {
+  margin: 0 0 8px 0;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ================= ASIDE / PROFILE ================= */
+aside {
+  position: relative;
+}
+
+.profile {
+  padding: 22px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  color: var(--text);
+}
+
+.avatar-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.insignia-side {
+  width: 96px;
+  height: 96px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.insignia-side:hover {
+  transform: scale(1.06);
+  opacity: 0.95;
+}
+
+/* ================= TEXT ================= */
+.small {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ================= CONTACT ================= */
+.contact {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+a.btn {
+  background: #f1f5f9;
+  padding: 10px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  border: 1px solid var(--border);
+  transition: .2s ease;
+}
+
+a.btn:hover {
+  background: #e9eef5;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 980px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ================= WHATSAPP FLOAT ================= */
+.whatsapp-float {
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  width: 62px;
+  height: 62px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  z-index: 9999;
+  transition: .2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-logo {
+  width: 36px;
+  height: 36px;
+}
   </style>
 </head>
 
@@ -376,6 +414,7 @@
   </script>
 </body>
 </html>
+
 
 
 
